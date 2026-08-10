@@ -14,6 +14,13 @@ export class OsService {
     const newOs = this.osRepository.create(createOsDto);
     return await this.osRepository.save(newOs);
   }
+  async findAll(): Promise<ServiceOrder[]> {
+    return await this.osRepository.find({
+      order: {
+        id: 'DESC',
+      },
+    });
+  }
 
   async findOne(id: number): Promise<ServiceOrder> {
     const os = await this.osRepository.findOne({ where: { id } });
@@ -32,4 +39,6 @@ export class OsService {
 
     return await this.osRepository.save(existingOs);
   }
+
+  
 }

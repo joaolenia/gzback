@@ -11,6 +11,10 @@ export class OsController {
   create(@Body() createOsDto: Partial<ServiceOrder>) {
     return this.osService.create(createOsDto);
   }
+  @Get()
+  findAll() {
+    return this.osService.findAll();
+  }
 
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
@@ -24,4 +28,6 @@ export class OsController {
   ) {
     return this.osService.update(id, updateOsDto);
   }
+
+  
 }
