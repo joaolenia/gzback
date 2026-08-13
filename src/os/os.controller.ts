@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, ParseIntPipe, Delete } from '@nestjs/common';
 import { OsService } from './os.service';
 import { ServiceOrder } from './entities/os.entitiy';
 
@@ -19,6 +19,11 @@ export class OsController {
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.osService.findOne(id);
+  }
+
+   @Delete(':id')
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.osService.remove(id);
   }
 
   @Patch(':id')

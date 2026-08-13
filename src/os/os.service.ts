@@ -40,5 +40,8 @@ export class OsService {
     return await this.osRepository.save(existingOs);
   }
 
-  
+  async remove(id: number): Promise<void> {
+    const os = await this.findOne(id);
+    await this.osRepository.remove(os);
+  }
 }
