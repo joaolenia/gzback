@@ -56,6 +56,9 @@ export class ServiceOrder {
   @Column('text', { name: 'client_request', nullable: true })
   clientRequest?: string; // Solicitações do cliente
 
+    @Column('text', { name: 'observations', nullable: true })
+  observations?: string;
+
   // ================= PEÇAS E SERVIÇOS (JSON) =================
   // O MySQL a partir da versão 5.7 suporta colunas JSON nativamente
   @Column('json', { nullable: true })
